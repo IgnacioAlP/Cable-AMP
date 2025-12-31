@@ -1,0 +1,969 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* Variables de colores para diseño profesional - Solo azul y blanco */
+:root {
+  --primary-blue: #0D274D;
+  --secondary-blue: #2563eb;
+  --accent-blue: #3b82f6;
+  --light-blue: #dbeafe;
+  --white: #ffffff;
+  --light-gray: #f8fafc;
+  --border-gray: #e5e7eb;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Scrollbar personalizado - diseño profesional */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+  
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar elegante */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-blue) var(--light-gray);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--secondary-blue);
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+/* Estilos para la tabla de especificaciones */
+.specs-table-container {
+  position: relative;
+}
+
+.specs-table-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(243, 244, 246, 0.9));
+  pointer-events: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ========================================
+   ANIMACIONES SUTILES Y PROFESIONALES
+======================================== */
+
+/* Animación de fade-in suave para elementos al cargar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de escala sutil */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animación de pulso suave para botones CTA */
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+  }
+}
+
+/* Animación de bounce para indicador de scroll */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* Animación de shimmer para cargas */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* ========================================
+   ESTILOS GENERALES MEJORADOS
+======================================== */
+
+/* Contenedor principal con animación de entrada */
+main {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Navegación superior mejorada */
+.nav-container {
+  transition: all 0.3s ease;
+}
+
+.nav-item {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-blue);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-item:hover::after {
+  width: 80%;
+}
+
+.nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+/* Breadcrumb mejorado */
+.breadcrumb-link {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.breadcrumb-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--secondary-blue);
+  transition: width 0.3s ease;
+}
+
+.breadcrumb-link:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   SIDEBAR DE MARCAS OPTIMIZADO
+======================================== */
+
+aside {
+  animation: fadeIn 0.6s ease-out 0.2s backwards;
+}
+
+aside a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+aside a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+aside a:hover::before {
+  left: 100%;
+}
+
+aside a:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   SECCIÓN DE PRODUCTO
+======================================== */
+
+/* Contenedor de producto con entrada suave */
+#information-section {
+  animation: scaleIn 0.5s ease-out 0.3s backwards;
+}
+
+/* Imagen principal con efecto profesional */
+#img_main {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#img_main:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* Miniaturas con efecto elegante */
+.thumbnail-container {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 99, 235, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-container:hover::after {
+  opacity: 1;
+}
+
+.thumbnail-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--secondary-blue) !important;
+}
+
+/* ========================================
+   BOTONES Y CTA
+======================================== */
+
+/* Botón de compra con animación de atención */
+.btn-buy {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-buy::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-buy:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+}
+
+.btn-buy:active {
+  transform: translateY(0);
+}
+
+/* Botones de descarga con iconos animados */
+.download-btn {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.download-btn i {
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--secondary-blue);
+}
+
+.download-btn:hover i {
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   PESTAÑAS (TABS)
+======================================== */
+
+.tab-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+
+.tab-button:active {
+  transform: translateY(0);
+}
+
+/* Indicador visual en tab activo */
+.tab-button.active::before,
+.tab-button.bg-blue-600::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: white;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ========================================
+   ACORDEONES (DETAILS)
+======================================== */
+
+details {
+  transition: all 0.3s ease;
+}
+
+details summary {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+details summary:hover {
+  background-color: #f3f4f6;
+  padding-left: 1.25rem;
+}
+
+details summary svg {
+  transition: transform 0.3s ease;
+}
+
+details[open] summary svg {
+  transform: rotate(90deg);
+}
+
+details[open] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   CARDS DE PRODUCTOS RELACIONADOS
+======================================== */
+
+.product-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.product-card:hover::before {
+  left: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ========================================
+   FOOTER MEJORADO
+======================================== */
+
+footer {
+  animation: fadeIn 0.6s ease-out;
+}
+
+footer a {
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+footer .fab, footer .fas {
+  transition: transform 0.3s ease;
+}
+
+footer a:hover .fab,
+footer a:hover .fas {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ========================================
+   UTILIDADES RESPONSIVAS
+======================================== */
+
+/* Mejoras para móviles */
+@media (max-width: 768px) {
+  .nav-item:hover {
+    transform: translateY(0);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Ajustes de padding y márgenes */
+  main {
+    padding: 0.5rem;
+  }
+  
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Tipografía responsiva */
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+  
+  /* Ajustes de imágenes */
+  #img_main {
+    max-height: 300px;
+  }
+  
+  /* Botones en móvil */
+  .btn-buy {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+  }
+  
+  /* Tabs más compactos */
+  .tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Tablas responsivas */
+  table {
+    font-size: 0.75rem;
+  }
+  
+  table td,
+  table th {
+    padding: 0.5rem !important;
+  }
+  
+  /* Grid más compacto */
+  .grid {
+    gap: 0.75rem;
+  }
+}
+
+/* Optimización para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  aside {
+    width: 200px;
+  }
+  
+  /* Ajuste de contenedores */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Tipografía para tablet */
+  h1 {
+    font-size: 1.875rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Botones en tablet */
+  .tab-button {
+    padding: 0.625rem 1.5rem;
+  }
+}
+
+/* Móviles muy pequeños (menos de 400px) */
+@media (max-width: 400px) {
+  /* Reducir aún más el espaciado */
+  .px-4 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  .py-4 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  /* Texto más pequeño */
+  body {
+    font-size: 0.875rem;
+  }
+  
+  /* Características principales en columna única */
+  .grid.grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ajuste de logo en navbar */
+  nav img {
+    max-height: 2rem;
+  }
+}
+
+/* Animación de carga para imágenes */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+  opacity: 0;
+}
+
+/* Efecto de enfoque accesible */
+:focus-visible {
+  outline: 2px solid var(--secondary-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scroll suave en toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animación para elementos que entran en viewport */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: slideInFromBottom 0.6s ease-out;
+}
+
+/* ========================================
+   MEJORAS ADICIONALES PARA DISEÑO PROFESIONAL
+======================================== */
+
+/* Prevenir desbordamiento de imágenes - FIX CRÍTICO */
+#img_main {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* Contenedor de imagen - sin desbordamiento */
+.w-full.h-\[280px\],
+.w-full.h-\[350px\],
+.w-full.h-\[400px\] {
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+/* Mejorar miniaturas */
+.thumbnail-container {
+  transition: all 0.2s ease;
+}
+
+.thumbnail-container:hover {
+  border-color: var(--secondary-blue) !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.thumbnail-container img {
+  transition: transform 0.2s ease;
+}
+
+.thumbnail-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Efectos hover profesionales */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Botón de compra profesional */
+.btn-buy {
+  transition: all 0.2s ease;
+}
+
+.btn-buy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Tabs profesionales */
+.tab-button {
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background: var(--secondary-blue);
+}
+
+/* Características principales hover simple */
+.bg-white.border-2:hover {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* Tabla de especificaciones */
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
+  background-color: #eff6ff !important;
+}
+
+/* Sidebar de marcas */
+aside a {
+  transition: all 0.2s ease;
+}
+
+aside a:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Modal de imagen */
+#image-modal {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#modal-image {
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Breadcrumb */
+.breadcrumb-link {
+  transition: all 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  background-color: #eff6ff;
+  color: #2563eb !important;
+}
+
+/* ========================================
+   SUBMENU DE NAVEGACIÓN
+======================================== */
+
+/* Contenedor del submenú */
+.nav-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Items del submenú */
+.nav-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.nav-item i {
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover i {
+  transform: scale(1.1);
+}
+
+/* Iconos del submenú */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+/* Indicador visual de scroll en móvil */
+@media (max-width: 1023px) {
+  .nav-container {
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+  
+  /* Sombra indicadora de más contenido */
+  .nav-container::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+    pointer-events: none;
+  }
+}
+
+/* Responsive para el submenú */
+@media (max-width: 768px) {
+  .nav-item {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .nav-item span {
+    font-size: 0.75rem;
+  }
+  
+  .icon-container {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+/* ========================================
+   RESTO DE ESTILOS
+======================================== */
+
+/* Product cards */
+.product-card {
+  transition: all 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+======================================== */
+
+/* Mejoras para tablets */
+@media (max-width: 1024px) {
+  aside {
+    display: none;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Optimización para móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.125rem !important;
+  }
+  
+  .py-4 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  body {
+    font-size: 0.875rem;
+  }
+  
+  .grid.grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  nav img {
+    max-height: 2.5rem;
+  }
+  
+  /* FIX CRÍTICO: Imagen responsive */
+  #img_main {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .thumbnail-container {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  /* Asegurar que no haya scroll horizontal */
+  .w-full {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Prevenir imágenes que se desbordan */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--secondary-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transiciones suaves pero simples */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+
+/* Optimización de rendimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
